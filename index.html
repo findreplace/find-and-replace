@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Find & Replace Text Online</title>
+	<meta content="Search for strings of text, including words, numbers, characters and replace it easily. Use the regex functionality for complex find and replace operations." name="description">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<link href="https://findreplace.net/" rel="canonical">
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link href="css/app.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="top-pane">
+		<header>
+			<div class="brand">
+				<a href="/"><i class="logo"></i><h1>Find & Replace</h1></a>
+			</div>
+
+			<div class="links">
+				<ul>
+					<li><a href="#" id="abt-btn">About</a>
+					</li>
+
+					<li class="dropdown-btn"><a href="#">More Tools <i class="down"></i></a>
+						<ul class="dropdown">
+							<li class="shtml"><a href="https://compresshtml.com/">
+								<strong>Compress HTML</strong>
+								<span>Online HTML file minifier</span>
+							</a>
+							</li>
+							<li class="sjs"><a href="https://compressjavascript.com/">
+								<strong>Compress JavaScript</strong>
+								<span>Online JavaScript file minifier</span>
+							</a>
+							</li>
+							<li class="scss"><a href="https://compresscss.net/">
+								<strong>Compress CSS</strong>
+								<span>Online CSS file minifier</span>
+							</a>
+							</li>
+							<li class="snote"><a href="https://onlinenotepad.org/">
+								<strong>Online Notepad</strong>
+								<span>Simple browser-based text editor</span>
+							</a>
+							</li>
+						</ul>
+					</li>
+					<li><a href="https://www.addtoany.com/share" rel="nofollow" onclick='window.open(this.href,"_blank","height=400,width=600");return false;'><i class="share"></i></a>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<div class="menu">
+			<div class="actions">
+				<ul><li><input type="button" value="Open" id="open_file"></li><li><input type="button" value="Save" id="saveas"></li><li><input type="button" value="Select All" id="highlight"></li><li><input type="button" value="Clear" id="reset"></li></ul>
+			</div>
+
+			<div id="settings">
+				<ul>
+					<li>
+						<span class="mytooltip label">Global<p class="tooltip ">Global match is used to replace all occurrences of the word you're searching for in the text document. When disabled, the search and replace operation will stop after the first match.</p></span>
+						<label class="switch"><input id="global" type="checkbox" checked><span class="slider"></span></label>
+					</li>
+
+					<li>
+						<span class="mytooltip label">Match case<p class="tooltip ">By default, the tool will replace all occurence of the string you're searching for regardless of the letter case. Enable this to make the operation case sensitive to exactly match search query.</p></span>
+						<label class="switch"><input id="matchcase" type="checkbox"><span class="slider"></span></label>
+					</li>
+					<li id="wholeword">
+						<span class="mytooltip label">Words<p class="tooltip ">Words only. Replace a match if it's not preceeded or followed by another string. For example, searching "back" does not match the "back" in the word "backwards".</p></span>
+						<label class="switch"><input id="words" type="checkbox"><span class="slider"></span></label>
+					</li>
+					<li><span class="mytooltip label" id="reg-btn">RegEx<p class="tooltip ">Allows you to use Regular Expressions. Click for more info.</p></span>
+						<label class="switch"><input type="checkbox" id="reg_exp"><span class="slider"></span></label>
+					</li>
+					<li id="multiopt"></li>
+				</ul>
+			</div>
+
+			<div class="matches">
+				<ul><li><span id="report"></span></li></ul>
+			</div>
+		</div>
+
+
+		<div class="tools">
+			    <div class="rightbox">
+					<div class="btnbox">
+						<input type="button" value="Replace" id="replace_all">
+					</div>
+			    </div>
+
+			    <div class="leftbox">
+					<div id="findbox">
+						<textarea placeholder="Find this" id="find_text"></textarea>
+					</div>
+					<div id="replacebox">
+						<textarea placeholder="Replace with" id="replace_text"></textarea>
+					</div>
+			    </div>
+		</div>
+	</div>
+
+
+	<div id="abt-bg"></div>
+	<div id="abt-box">
+	  <div id="abt-head"><h3>About</h3><span id="abt-x"><i class="close"></i></span></div>
+		<div class="about">
+			<h3>Introduction</h3>
+			<p>Find & Replace is a free online tool that allows you to easily search for a letter, number, word, or phrase in your text document and substitute it with something else. It can be very useful when it comes to editing a huge chunk of text. This tool will automatically find all exact matches and replace them all in a single click of a button.</p>
+			<br>
+			<h3>Usage</h3>
+			<p>Find & Replace is pretty straightforward to use.</p>
+			<ol>
+				<li>First, fill the "Find this" field with the word you want to change and the "Replace with" field with the new word you want to use.</li>
+				<li>Next, paste your text in the text box. Alternatively, you can click the "Open File" button in the menu bar to directly load a file from your computer. See supported file extensions below.</li>
+				<li>Lastly, click the "Replace All" button to start the process.</li>
+			</ol>
+			<br>
+			<h3>File types</h3>
+			<p>The File Reader only supports opening plain text documents such as <code>.txt</code>, <code>.html/.htm</code>, <code>.css</code>, <code>.js</code>, <code>.bat</code>, <code>.nfo</code> and <code>.md</code>. If you are working on a rich text editor, you can just directly copy your content in the text box.</p>
+		</div>
+	</div>
+
+	<div id="reg-bg"></div>
+	<div id="reg-box">
+	  <div id="reg-head"><h3>Regular Expressions</h3><span id="reg-x"><i class="close"></i></span></div>
+		<div class="about">
+			<h3>About</h3>
+			<p>Find & Replace gives you an option to use Regular Expressions to perform a more complex type of search and replace operations. Below is a list of basic examples that you can use as a cheat sheet.
+			</p>
+			<br>
+			<h3>Basic Examples</h3>
+			<p>Using the or condition to search for multiple words.</p>
+			<ul>
+				<li>Input: <code>one two three</code></li>
+				<li>Find: <code>one|two|three</code> and Replace with: <code>number</code></li>
+				<li>Result: <code>number number number</code></li>
+			</ul>
+			<br>
+			<p>Switching the positions of the words.</p>
+			<ul>
+				<li>Input: <code>hello world</code></li>
+				<li>Find: <code>(hello) (world)</code> and Replace with: <code>$2 $1</code></li>
+				<li>Result: <code>world hello</code></li>
+			</ul>
+			<br>
+			<p>Wrapping a word.</p>
+			<ul>
+				<li>Input: <code>This is a sample text</code></li>
+				<li>Find: <code>(sample)</code> and Replace with: <code>&lt;b&gt;$1&lt;/b&gt;</code></li>
+				<li>Result: <code>This is a &lt;b&gt;sample&lt;/b&gt; text</code></li>
+			</ul>
+			<br>
+			<p>Replace only if followed by certain characters. For negation, simply replace <code>=</code> with <code>!</code>.</p>
+			<ul>
+				<li>Input: <code>upgrade</code></li>
+				<li>Find: <code>up(?=grade)</code> and Replace with: <code>down</code></li>
+				<li>Result: <code>downgrade</code></li>
+				<li>It will not match the "up" in the word "update" since it is not followed by "grade".</li>
+			</ul>
+			<br>
+			<p>Matching an unknown number.</p>
+			<ul>
+				<li>Input: <code>width="356"</code></li>
+				<li>Find: <code>width="([0-9]+)"</code> and Replace with: <code>width="100%"</code></li>
+				<li>Result: <code>width="100%"</code></li>
+			</ul>
+			<br>
+			<h3>Special characters</h3>
+			<p>You must place a backslash '\' before a special character. The tool will generate an error message that says: "SyntaxError: Invalid regular expression: / . ^ $ * + ? \ [ ( { |/: Unterminated character class" if you have forgotten to escape the backslash .</p>
+			<br>
+			<p>For example, to match Where? use Where\? - the \? is taken to mean ?.</p>
+			<ul>
+				<li>Input: <code>Where?</code></li>
+				<li>Find: <code>Where\?</code> and Replace with: <code>What?</code></li>
+				<li>Result: <code>What?</code></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="content-pane">
+		<textarea id="text_input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Paste your text here"></textarea>
+	</div>
+
+
+	<div class="bottom-pane">
+		<style>
+		.FR_banner { width: 320px; height: 100px; }
+		@media(min-width: 472px) { .FR_banner { width: 468px; height: 100px; } }
+		@media(min-width: 732px) { .FR_banner { width: 728px; height: 90px; } }
+		@media(min-width:974px) { .FR_banner { width: 970px; height: 90px; }}
+		</style>
+		<!-- JS_banner -->
+		<ins class="adsbygoogle FR_banner" style="display:inline-block" data-ad-client="ca-pub-2859608055830984" data-ad-slot="7471273798"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</div>
+
+	<input type='file' id="upload"  accept="text/*">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/app.js"></script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</body>
+</html>
