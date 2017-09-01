@@ -22,7 +22,7 @@ Find & Replace gives you an option to use Regular Expressions to perform a more 
 Using the or condition to search for multiple words.
 * Input: `one two three`
 * Find: `one|two|three` and Replace with: ``number`
-* Result: ``number number number`
+* Result: `number number number`
 
 ### Switching the positions of the words.
 * Input: `hello world`
