@@ -38,6 +38,7 @@ Using the or condition to search for multiple words.
 * Input: `upgrade`
 * Find: `up(?=grade)` and Replace with: `down`
 * Result: `downgrade`
+
 It will not match the "up" in the word "update" since it is not followed by "grade".
 
 ### Matching an unknown number.
