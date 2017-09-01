@@ -45,7 +45,7 @@ It will not match the "up" in the word "update" since it is not followed by "gra
 * Find: `width="([0-9]+)"` and Replace with: `width="100%"`
 * Result: `width="100%"`
 
-## Special characters
+### Special characters
 You must place a backslash '\' before a special character. The tool will generate an error message that says: "SyntaxError: Invalid regular expression: / . ^ $ * + ? \ [ ( { |/: Unterminated character class" if you have forgotten to escape the backslash .
 
 For example, to match Where? use Where\? - the \? is taken to mean ?.
