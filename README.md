@@ -34,12 +34,13 @@ Using the or condition to search for multiple words.
 * Find: `(sample)` and Replace with: `<b>$1</b>`
 * Result: `This is a <b>sample</b> text`
 
-### Replace only if followed by certain characters. For negation, simply replace = with !.
+### Replace only if followed by certain characters.
 * Input: `upgrade`
 * Find: `up(?=grade)` and Replace with: `down`
 * Result: `downgrade`
 
 It will not match the "up" in the word "update" since it is not followed by "grade".
+Note: For negation, simply replace `=` with `!`
 
 ### Matching an unknown number.
 * Input: `width="356"`
