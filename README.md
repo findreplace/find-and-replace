@@ -40,6 +40,7 @@ Using the or condition to search for multiple words.
 * Result: `downgrade`
 
 It will not match the "up" in the word "update" since it is not followed by "grade".
+
 Note: For negation, simply replace `=` with `!`
 
 ### Matching an unknown number.
