@@ -14,3 +14,41 @@ Find & Replace is pretty straightforward to use.
 * Words Only - Replace a match if it's not preceeded or followed by another string. For example, searching "back" does not match the "back" in the word "backwards".
 * RegEx - Allows you to use Regular Expressions.
 * Multiline - Adds Regular Expressions m modifier to perform multi-line matching
+
+## Regular Expressions
+Find & Replace gives you an option to use Regular Expressions to perform a more complex type of search and replace operations. Below is a list of basic examples that you can use as a cheat sheet.
+
+### Basic Examples
+Using the or condition to search for multiple words.
+* Input: `one two three`
+* Find: `one|two|three` and Replace with: ``number`
+* Result: ``number number number`
+
+### Switching the positions of the words.
+* Input: `hello world`
+* Find: `(hello) (world)` and Replace with: `$2 $1`
+* Result: `world hello`
+
+### Wrapping a word.
+* Input: `This is a sample text`
+* Find: `(sample)` and Replace with: `<b>$1</b>`
+* Result: `This is a <b>sample</b> text`
+
+### Replace only if followed by certain characters. For negation, simply replace = with !.
+* Input: `upgrade`
+* Find: `up(?=grade)` and Replace with: `down`
+* Result: `downgrade`
+It will not match the "up" in the word "update" since it is not followed by "grade".
+
+### Matching an unknown number.
+* Input: `width="356"`
+* Find: `width="([0-9]+)"` and Replace with: `width="100%"`
+* Result: `width="100%"`
+
+## Special characters
+You must place a backslash '\' before a special character. The tool will generate an error message that says: "SyntaxError: Invalid regular expression: / . ^ $ * + ? \ [ ( { |/: Unterminated character class" if you have forgotten to escape the backslash .
+
+For example, to match Where? use Where\? - the \? is taken to mean ?.
+* Input: `Where?`
+* Find: `Where\?` and Replace with: `What?`
+* Result: `What?`
