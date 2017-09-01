@@ -52,8 +52,6 @@ Note: For negation, simply replace `=` with `!`
 You must place a backslash '\' before a special character. The tool will generate an error message that says: "SyntaxError: Invalid regular expression: / . ^ $ * + ? \ [ ( { |/: Unterminated character class" if you have forgotten to escape the backslash .
 
 For example, to match Where? use Where\? - the \? is taken to mean ?.
-```
-Input: `Where?`
-Find: `Where\?` and Replace with: `What?`
-Result: `What?`
-```
+* Input: `Where?`
+* Find: `Where\?` and Replace with: `What?`
+* Result: `What?`
